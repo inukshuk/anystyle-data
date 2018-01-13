@@ -1,0 +1,35 @@
+# Definition of dictionary category
+# 
+# Keys are the category to which tokens/words  belong
+# Values are an array of dictionary files which contain the tokens/words
+# for that category. These are assumed to be in the directory ./dict-src/
+# and have the suffix .txt
+
+{
+name : [ 
+firstnames_female,
+firstnames_male,
+familynames_chinese,
+surnames_american_commonest,
+surnames_american_common,
+surnames_european
+], 
+place : [
+places_gazetteer,
+places_us_state_abbreviations
+],
+publisher : [
+publishers_narosa,
+publishers_wikipedia
+],
+month : [
+months_english
+],
+journal : [
+journals_scopus,
+journals_maths,
+journals_philosophy,
+journals_psychology,
+journals_humanities
+]
+}
