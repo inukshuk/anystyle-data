@@ -1,3 +1,4 @@
+#! publisher
 ## Publisher names
 ## http://en.wikipedia.org/wiki/List_of_publishers, retrieved Sep 2011
 ablex

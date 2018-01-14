@@ -1,3 +1,4 @@
+#! journal
 ## Journal names: Mathematics
 ## https://secure.wikimedia.org/wikipedia/en/wiki/List_of_mathematics_journals
 abhandlungen

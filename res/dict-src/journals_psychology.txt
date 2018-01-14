@@ -1,3 +1,4 @@
+#! journal
 ## Journal names
 ## Pyschology and psychotherapy
 american
@@ -219,7 +220,7 @@ in
 personality
 journal
 of
-sex 
+sex
 marital
 therapy
 journal
@@ -228,10 +229,10 @@ sex
 research
 journal
 of
-social 
+social
 psychological
 sciences
-mind 
+mind
 language
 music
 perception
@@ -308,5 +309,5 @@ universitas
 psychologica
 vision
 research
-work 
+work
 stress

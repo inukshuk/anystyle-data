@@ -1,3 +1,4 @@
+#! journal
 ## Journal names
 ## https://secure.wikimedia.org/wikipedia/en/wiki/List_of_philosophy_journals
 filosofický

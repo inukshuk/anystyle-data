@@ -1,4 +1,4 @@
-#+ MULTITOKENS
+#! journal
 ## List of journals indexed in Scopus https://www.scopus.com/sources.uri
 ## October 2017.
 # Spaces manually added before "/" character used to separate
@@ -2347,7 +2347,7 @@ Annali Italiani di Medicina Interna
 Annali Italiani di Medicina Interna, Supplement
 Annali Sclavo - Rivista di Microbiologia e di Immunologia
 Annali Sclavo. Collana monografica
-Annals of "Dunarea de Jos" University of Galati, Fascicle XII, Welding Equipment and Technology 
+Annals of "Dunarea de Jos" University of Galati, Fascicle XII, Welding Equipment and Technology
 Annals of African Medicine
 Annals of Agri Bio Research
 Annals of Agricultural and Environmental Medicine
@@ -3281,7 +3281,7 @@ Arheoloski Vestnik
 Arhiv za Farmaciju
 Arhiv za Higijenu Rada i Toksikologiju
 Arhiv za Zastitu Majke i Djeteta
-ARI Bulletin of the Istanbul Technical University  
+ARI Bulletin of the Istanbul Technical University
 Arid Ecosystems
 Arid Land Research and Management
 Arid Soil Research and Rehabilitation
@@ -3875,7 +3875,7 @@ Australian Health Review
 Australian Historical Studies
 Australian hospital
 Australian Journal of Acupuncture and Chinese Medicine
-Australian Journal of Adult Learning  
+Australian Journal of Adult Learning
 Australian Journal of Advanced Nursing
 Australian Journal of Agricultural and Resource Economics
 Australian Journal of Agricultural Economics
@@ -9314,7 +9314,7 @@ DOLOR
 Dolor, Clinica y Terapia
 Domestic Animal Endocrinology
 Donald School Journal of Ultrasound in Obstetrics and Gynecology
-Dong wu xue yan jiu = Zoological research / "Dong wu xue yan jiu" bian ji wei yuan hui bian ji 
+Dong wu xue yan jiu = Zoological research / "Dong wu xue yan jiu" bian ji wei yuan hui bian ji
 Dongbei Daxue Xuebao/ journal of Northeastern University
 Dongli Gongcheng Xuebao/ journal of Chinese Society of Power Engineering
 Dongli Gongcheng/Power Engineering
@@ -9842,7 +9842,7 @@ Ekonomiska Samfundets Tidskrift
 Ekonomista
 Ekonomski Pregled
 Eksperimentalna Medicina i Morfologiya
-Eksperimental'naia i klinicheskaia gastroenterologiia = Experimental & clinical gastroenterology 
+Eksperimental'naia i klinicheskaia gastroenterologiia = Experimental & clinical gastroenterology
 Eksperimental'naia khirurgiia
 Eksperimental'naia khirurgiia i anesteziologiia
 Eksperimental'naya i Klinicheskaya Farmakologiya
@@ -9983,7 +9983,7 @@ Elektrotehniski Vestnik/Electrotechnical Review
 Elektrotekhnika
 Elektrowaerme International
 Elektrowaerme International
-Elektrowaerme International, Edition A, Elektrowarme im technischen Ausbau 
+Elektrowaerme International, Edition A, Elektrowarme im technischen Ausbau
 Elektrowaerme International, Edition B, Industrielle Elektrowaerme
 Elelmiszervizsgalati Kozlemenyek
 Elementa
@@ -13158,7 +13158,7 @@ Hangkong Xuebao/Acta Aeronautica et Astronautica Sinica
 Hangtian Yixue Yu Yixue Gongcheng/Space Medicine and Medical Engineering
 Han'guk Nonghwa Hakhoe chi
 Hanjie Xuebao/Transactions of the China Welding Institution
-Hanneng Cailiao/Chinese Journal of Energetic Materials 
+Hanneng Cailiao/Chinese Journal of Energetic Materials
 Hansische Geschichtsblatter
 Hantkeniana
 Harbin Gongcheng Daxue Xuebao/ journal of Harbin Engineering University
@@ -24497,7 +24497,7 @@ Metallography, Microstructure, and Analysis
 Metallomics
 Metallovedenie i Termicheskaya Obrabotka Metallov
 Metallurgia
-Metallurgia and Metal Forming 
+Metallurgia and Metal Forming
 Metallurgia Italiana
 Metallurgical and Materials Transactions A: Physical Metallurgy and Materials Science
 Metallurgical and Materials Transactions B: Process Metallurgy and Materials Processing Science
@@ -25250,7 +25250,7 @@ Mutation Research - Reviews in Mutation Research
 Mutation Research Letters
 Mutatis Mutandis
 Muttersprache
-Müvészettörténeti Értesítö 
+Müvészettörténeti Értesítö
 Muzeologia a Kulturne Dedicstvo
 Muzikoloski Zbornik
 Mycobiology
@@ -27183,7 +27183,7 @@ Pain Reviews
 Paint and Coatings Industry
 Paint and Resin International
 Paint and Resin Times
-PAJ - Journal of Performance and Art 
+PAJ - Journal of Performance and Art
 Pakistan Development Review
 Pakistan Journal of Agricultural Sciences
 Pakistan Journal of Biological Sciences
@@ -28799,7 +28799,7 @@ Proceedings of the Institution of Civil Engineers: Engineering and Computational
 Proceedings of the Institution of Civil Engineers: Engineering Sustainability
 Proceedings of the Institution of Civil Engineers: Geotechnical Engineering
 Proceedings of the Institution of Civil Engineers: Ground Improvement
-Proceedings of the Institution of Civil Engineers: Maritime Engineering 
+Proceedings of the Institution of Civil Engineers: Maritime Engineering
 Proceedings of the Institution of Civil Engineers: Municipal Engineer
 Proceedings of the Institution of Civil Engineers: Structures and Buildings
 Proceedings of the Institution of Civil Engineers: Transport
@@ -30045,7 +30045,7 @@ Research in Community and Mental Health
 Research in Comparative and International Education
 Research in Competence-Based Management
 Research in Consumer Behavior
-Research in Contemporary World Literature/ Pazhuhesh-e Zabanha-ye Khareji 
+Research in Contemporary World Literature/ Pazhuhesh-e Zabanha-ye Khareji
 Research in Dance Education
 Research in Design Series
 Research in Developmental Disabilities
@@ -35143,7 +35143,7 @@ Tsitologiya
 Tsukaba Studies in Human Geography
 Tsukuba Daigaku Jinbun Chirigaku Kenkyu
 Tsvetnye Metally
-TTR: Traduction, Terminologie et Redaction 
+TTR: Traduction, Terminologie et Redaction
 TUBA-AR
 Tubercle
 Tubercle and Lung Disease
@@ -36460,7 +36460,7 @@ Zeitschrift für die gesamte experimentelle Medizin einschliesslich experimentel
 Zeitschrift für die gesamte Neurologie und Psychiatrie
 Zeitschrift für die gesamte Versicherungswissenschaft
 Zeitschrift fur die Neutestamentliche Wissenschaft und die Kunde der Alteren Kirche
-Zeitschrift für die Zuckerindustrie 
+Zeitschrift für die Zuckerindustrie
 Zeitschrift für Differentielle und Diagnostische Psychologie
 Zeitschrift für Entwicklungspsychologie und Padagogische Psychologie
 Zeitschrift für Epileptologie
@@ -36534,7 +36534,7 @@ Zeitschrift für Kreislaufforschung
 Zeitschrift fur Kristallographie - Crystalline Materials
 Zeitschrift für Kristallographie - New Crystal Structures
 Zeitschrift für Kristallographie, Supplement
-Zeitschrift für Kulturtechnik und Flurbereinigung 
+Zeitschrift für Kulturtechnik und Flurbereinigung
 Zeitschrift für Kulturtechnik und Landentwicklung
 Zeitschrift für Kunstgeschichte
 Zeitschrift für Larmbekampfung
