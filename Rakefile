@@ -14,53 +14,43 @@ CLEAN.include('*.gem')
 CLEAN.include('lib/anystyle/data/dict.txt.gz')
 
 
-task :compile => [:clean, 'lib/anystyle/data/dict.txt.gz'] do
+task :compile => [:clean, 'lib/anystyle/data/dict.txt.gz']
 
-end
-
-require 'yaml'
-DIC_DEF_FILE = 'res/dictionary.yaml'
-dict_def = YAML.load(File.read(DIC_DEF_FILE))
-dict_def.each do | cat, files |
-  dict_def[cat] = files.map { | f | "res/dict-src/#{f}.txt" }
-end
-
-file 'lib/anystyle/data/dict.txt.gz' =>
-     [ DIC_DEF_FILE, *dict_def.values.flatten ] do | dic_file |
+file 'lib/anystyle/data/dict.txt.gz' => FileList['res/*.txt'] do |f|
   entries = {}
-  comments = {}
-  dict_def.each do | cat, dfiles |
-    entries[cat] ||= {}
-    comments[cat] ||= []
-    dfiles.each do | dfile |
-      multitokens = false
-      File.foreach(dfile, encoding: "UTF-8") do | line |
-        case line
-        when /^#\+\s*MULTITOKENS/i
-          multitokens = true
-        when /^##/
-          comments[cat] << line
-        when /^#/ # Discard
-        else # 
-          # Canonical - lower case, no punctuation
-          line = line.gsub(/(?:\p{P}|\p{S})/, "").downcase
-          if multitokens # More than one per line
-            tokens = line.split(/\s+/).grep_v(/^\d+$/)
-          else # Only first per line
-            tokens = [ line.split(/\s+(\d+\.\d+)\s*$/)[0] ] 
-          end
-          tokens.each { | tok | entries[cat][tok] = true }
-        end
+  f.prerequisites.each do |file|
+    cat = ''
+    File.foreach(file, encoding: "UTF-8") do |line|
+      case line
+      when /^#! (\w+)/ # Get current category
+        cat = $1
+        entries[cat] ||= []
+      when /^#/ # Discard
+      else
+        # Only first word per line is token
+        token = line.split(/\s+(\d+\.\d+)\s*$/)[0]
+        # Strip punctuation and whitespace at start and end
+        token.gsub!(/^[\p{P}\p{S}\s]+|[\p{P}\p{S}\s]+$/, '')
+        # Replace characters with diacritic marks with their base equivalent
+        token.unicode_normalize!(:nfkd)
+        token.gsub!(/\p{M}/, '')
+        # Get rid of special characters likes apostrophes
+        token.gsub!(/\p{Lm}/, '')
+        token.downcase!
+        # Split words on punctuation and keep all pieces that are at least 3 characters long
+        # as well as the original word with all punctuation removed
+        pieces = token.split(/[\p{P}\p{S}]/)
+        pieces << token.gsub(/[\p{P}\p{S}]/, '') if pieces.count > 1
+        pieces.each { |piece| entries[cat] << piece if piece.length >= 3 && piece =~ /\p{L}/ }
       end
     end
   end
-  
+
   require 'zlib'
-  Zlib::GzipWriter.open(dic_file.to_s) do | dic_zip |
-    entries.each do | cat, items |
-      dic_zip.puts "## @#{cat}@"
-      comments[cat].each { | c | dic_zip.puts c }
-      items.keys.sort.each { | i | dic_zip.puts i }
+  Zlib::GzipWriter.open(f.name) do |zip|
+    entries.each do |cat, items|
+      zip.puts "#! #{cat}"
+      items.uniq.sort.each { |i| zip.puts i }
     end
   end
 end
