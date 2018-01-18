@@ -10,47 +10,77 @@ end
 require 'rake'
 require 'rake/clean'
 
+DATA = 'lib/anystyle/data'
+
 CLEAN.include('*.gem')
-CLEAN.include('lib/anystyle/data/dict.txt.gz')
+CLEAN.include("#{DATA}/dict.txt")
+CLEAN.include("#{DATA}/dict.txt.gz")
 
+task :compile => ["#{DATA}/dict.txt.gz"]
 
-task :compile => [:clean, 'lib/anystyle/data/dict.txt.gz']
+rule '.txt.gz' => '.txt' do |t|
+  require 'zlib'
+  Zlib::GzipWriter.open(t.name) do |zip|
+    zip.mtime = File.mtime(t.source)
+    zip.orig_name = t.source
+    zip.write IO.binread(t.source)
+  end
+  puts "#{File.stat(t.name).size / 1024}k compressed"
+end
 
-file 'lib/anystyle/data/dict.txt.gz' => FileList['res/*.txt'] do |f|
-  entries = {}
-  f.prerequisites.each do |file|
+file "#{DATA}/dict.txt" => FileList['res/*.txt'] do |t|
+  dict = {}
+
+  puts "Compiling dictionary from #{t.prerequisites.size} sources ..."
+  t.prerequisites.each do |file|
     cat = ''
-    File.foreach(file, encoding: "UTF-8") do |line|
+    puts " <- #{File.basename(file)}"
+    File.foreach(file, encoding: 'UTF-8') do |line|
       case line
-      when /^#! (\w+)/ # Get current category
+      when /^#! (\w+)/
         cat = $1
-        entries[cat] ||= []
-      when /^#/ # Discard
+        dict[cat] ||= []
+      when /^#/
+        # discard comments...
       else
         # Only first word per line is token
         token = line.split(/\s+(\d+\.\d+)\s*$/)[0]
+
         # Strip punctuation and whitespace at start and end
         token.gsub!(/^[\p{P}\p{S}\s]+|[\p{P}\p{S}\s]+$/, '')
-        # Replace characters with diacritic marks with their base equivalent
+
+        # Replace characters with diacritic marks
+        # with their base equivalent
         token.unicode_normalize!(:nfkd)
         token.gsub!(/\p{M}/, '')
-        # Get rid of special characters likes apostrophes
+
+        # Get rid of special characters like apostrophes
         token.gsub!(/\p{Lm}/, '')
         token.downcase!
-        # Split words on punctuation and keep all pieces that are at least 3 characters long
-        # as well as the original word with all punctuation removed
+
+        # Split words on punctuation and keep all pieces
+        # that are at least 3 characters long as well as
+        # the original word with all punctuation removed
         pieces = token.split(/[\p{P}\p{S}]/)
         pieces << token.gsub(/[\p{P}\p{S}]/, '') if pieces.count > 1
-        pieces.each { |piece| entries[cat] << piece if piece.length >= 3 && piece =~ /\p{L}/ }
+        pieces.each do |piece|
+          dict[cat] << piece if piece.length >= 3 && piece =~ /\p{L}/
+        end
       end
     end
   end
 
-  require 'zlib'
-  Zlib::GzipWriter.open(f.name) do |zip|
-    entries.each do |cat, items|
-      zip.puts "#! #{cat}"
-      items.uniq.sort.each { |i| zip.puts i }
+  puts "Writing dictionary to #{t.name} ..."
+  File.open(t.name, 'w') do |f|
+    dict.each do |cat, words|
+      words = words.uniq.sort
+      next if words.empty?
+      puts " <- %6d #! #{cat}" % [words.size]
+
+      f.puts "#! #{cat}"
+      words.each { |word| f.puts word }
     end
   end
+
+  puts "#{File.stat(t.name).size / 1024}k written"
 end
