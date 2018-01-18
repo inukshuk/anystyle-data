@@ -4,8 +4,14 @@ module AnyStyle
 
     def self.setup
       Dictionary.defaults[:source] = File.join(ROOT, 'dict.txt.gz')
-      Dictionary::GDBM.defaults[:path] = File.join(ROOT, 'dict.db')
-      Dictionary::LDBM.defaults[:path] = ROOT
+
+      if defined? Dictionary::GDBM
+        Dictionary::GDBM.defaults[:path] = File.join(ROOT, 'dict.db')
+      end
+
+      if defined? Dictionary::LDBM
+        Dictionary::LDBM.defaults[:path] = ROOT
+      end
     end
   end
 end
