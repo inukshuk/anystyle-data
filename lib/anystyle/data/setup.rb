@@ -6,7 +6,7 @@ module AnyStyle
       Dictionary.defaults[:source] = File.join(ROOT, 'dict.txt.gz')
 
       if defined? Dictionary::Marshal
-        Dictionary::GDBM.defaults[:path] = File.join(ROOT, 'dict.marshal')
+        Dictionary::Marshal.defaults[:path] = File.join(ROOT, 'dict.marshal')
       end
 
       if defined? Dictionary::GDBM
