@@ -5,6 +5,10 @@ module AnyStyle
     def self.setup
       Dictionary.defaults[:source] = File.join(ROOT, 'dict.txt.gz')
 
+      if defined? Dictionary::Marshal
+        Dictionary::GDBM.defaults[:path] = File.join(ROOT, 'dict.marshal')
+      end
+
       if defined? Dictionary::GDBM
         Dictionary::GDBM.defaults[:path] = File.join(ROOT, 'dict.db')
       end
