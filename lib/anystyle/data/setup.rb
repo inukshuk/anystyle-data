@@ -1,6 +1,6 @@
 module AnyStyle
   module Data
-    ROOT = File.expand_path('..', __FILE__).untaint
+    ROOT = File.expand_path('..', __FILE__)
 
     def self.setup
       Dictionary.defaults[:source] = File.join(ROOT, 'dict.txt.gz')
